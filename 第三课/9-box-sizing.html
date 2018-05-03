@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<style> 
+div.container
+{
+	width:400px;
+	border:30px solid;
+}
+div.box
+{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box; /* Safari */
+	width:50%;
+	border:20px solid red;
+	float:left;
+}
+.clear{ clear:both;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="box">这个 div 占据左半部分。</div>
+<div class="box">这个 div 占据右半部分。</div>
+<div class="clear"></div>
+</div>
+
+</body>
+</html>

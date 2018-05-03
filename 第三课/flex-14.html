@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <style>
+    .box {
+      background: red;
+      width: 90px;
+      height: 90px;
+      border-radius: 10px;
+
+      display: flex;
+      /*主轴*/
+      justify-content: space-between;
+
+
+    }
+
+    .item {
+      background: yellow;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      width: 30px;
+      height: 30px;
+
+    }
+
+    .item:nth-child(2) {
+      /*可覆盖交叉轴 align-items的定义*/
+      align-self: center;
+    }
+
+    .item:nth-child(3) {
+      /*可覆盖交叉轴 align-items的定义*/
+      align-self: flex-end;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <span class="item">1</span>
+    <span class="item">2</span>
+    <span class="item">3</span>
+  </div>
+</body>
+
+</html>

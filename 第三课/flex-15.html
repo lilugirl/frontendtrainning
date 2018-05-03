@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <style>
+    .box {
+      background: red;
+      width: 90px;
+      height: 90px;
+      border-radius: 10px;
+
+      display: flex;
+      flex-wrap: wrap;
+      /*主轴*/
+      justify-content: flex-end;
+
+      /*交叉轴*/
+      align-content: space-between;
+    }
+
+    .item {
+      background: yellow;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      width: 30px;
+      height: 30px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <span class="item">1</span>
+    <span class="item">2</span>
+    <span class="item">3</span>
+    <span class="item">4</span>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<head>
+ <meta charset="utf-8" />
+ 
+  <style>
+
+    @keyframes myfirst
+	{
+		0%   {background: red; left:0px; top:0px;}
+		25%  {background: yellow; left:200px; top:0px;}
+		50%  {background: blue; left:200px; top:200px;}
+		75%  {background: green; left:0px; top:200px;}
+		100% {background: red; left:0px; top:0px;}
+	}
+
+	@-moz-keyframes myfirst /* Firefox */
+	{
+		0%   {background: red; left:0px; top:0px;}
+		25%  {background: yellow; left:200px; top:0px;}
+		50%  {background: blue; left:200px; top:200px;}
+		75%  {background: green; left:0px; top:200px;}
+		100% {background: red; left:0px; top:0px;}
+	}
+
+	@-webkit-keyframes myfirst /* Safari 和 Chrome */
+	{
+		0%   {background: red; left:0px; top:0px;}
+		25%  {background: yellow; left:200px; top:0px;}
+		50%  {background: blue; left:200px; top:200px;}
+		75%  {background: green; left:0px; top:200px;}
+		100% {background: red; left:0px; top:0px;}
+	}
+
+	@-o-keyframes myfirst /* Opera */
+	{
+		0%   {background: red; left:0px; top:0px;}
+		25%  {background: yellow; left:200px; top:0px;}
+		50%  {background: blue; left:200px; top:200px;}
+		75%  {background: green; left:0px; top:200px;}
+		100% {background: red; left:0px; top:0px;}
+	}
+
+
+	@-ms-keyframes myfirst /* Opera */
+	{
+		0%   {background: red; left:0px; top:0px;}
+		25%  {background: yellow; left:200px; top:0px;}
+		50%  {background: blue; left:200px; top:200px;}
+		75%  {background: green; left:0px; top:200px;}
+		100% {background: red; left:0px; top:0px;}
+	}
+
+
+	div{
+		animation-name: myfirst;
+		-webkit-animation:myfirst 5s linear ;
+		
+		
+		width:300px !important;
+		height:300px;
+		position:absolute;
+
+
+	}
+  </style>
+</head>
+<body>
+<div >
+</div>
+</body>
+</html>
