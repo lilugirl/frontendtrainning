@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8" />
+            <style>
+             .focus{
+             	background:pink;
+             }
+             .unfocus{
+             	background:white;
+             }        
+            </style>
+
+            <script>
+            function setStyle(tagid){
+            	var tag=document.getElementById(tagid);
+            	if(tag.value==""){
+            		tag.setAttribute("class","focus");
+            	}else{
+            		tag.setAttribute("class","unfocus");
+            	}          	
+            }
+            </script>
+      </head>
+<body>
+<p>用户名:<input type="text" name="username"   onBlur="setStyle(this.id)"  id="txt_username" /></p>
+<p>密码:<input type="password" name="pwd"  onBlur="setStyle(this.id)" id="txt_pwd" /></p>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8" />
+            <style>
+     
+             #msg.show{
+             	border:1px solid #000;
+             	background:yellow;
+             	
+             }
+
+            </style>
+            <script>  
+
+            var xmlHttp;           
+            function createxmlHttpRequest() { 
+                if (window.ActiveXObject) { 
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP"); 
+                } else if (window.XMLHttpRequest) { 
+                xmlHttp = new XMLHttpRequest(); 
+            }
+          } 
+
+            function doPOST(url,data){ 
+              createxmlHttpRequest(); 
+              var msg= document.getElementById("msg");
+              xmlHttp.open("POST",url,true); 
+              xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+              xmlHttp.send(data);     
+              xmlHttp.onreadystatechange = function() { 
+                  if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)) {                  
+                     msg.innerHTML=xmlHttp.responseText;
+                     msg.setAttribute("class", "show"); 
+
+                  }
+              } 
+             
+           }
+			
+          
+            function CheckPost(){ 
+             //这里写一些基本的验证代码
+              return false;  
+            }
+
+            function checkuser(){
+              var url="http://www.1ke.co/backend/teach/js/checkuser_post.php";
+              data="username="+myform.username.value+"&pwd="+myform.pwd.value; 
+              doPOST(url,data);    
+            } 
+            </script>
+      </head>
+      <body>
+        <div id="msg">
+         </div>  
+        	<form name="myform"  onsubmit="return CheckPost()">
+          		<fieldset>
+          			<legend>登录</legend>
+          			<p>
+          				<label for="txt_username">用户名:</label>
+          				<input type="text" name="username"  onBlur="checkuser()" />
+          			</p>
+          			<p>
+          				<label for="txt_pwd">密码:</label>
+          				<input type="password" name="pwd"  />
+          			</p>
+          			<p>
+          				<input type="submit" value="登录" />          			
+          			</p>
+          			
+          		</fieldset>
+          	</form> 
+      </body>
+</html>

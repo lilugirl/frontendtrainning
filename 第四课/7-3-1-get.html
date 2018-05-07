@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <style>
+    #msg.show {
+      border: 1px solid #000;
+      background: yellow;
+    }
+  </style>
+  <script>  
+    var xmlHttp;
+    function createxmlHttpRequest() {
+      if (window.ActiveXObject) {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+      } else if (window.XMLHttpRequest) {
+        xmlHttp = new XMLHttpRequest();
+      }
+    }
+    function doGet(url) {
+      createxmlHttpRequest();
+      var msg = document.getElementById("msg");
+      xmlHttp.open("GET", url);
+      xmlHttp.send(null);
+      xmlHttp.onreadystatechange = function () {
+        if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)) {
+          msg.innerHTML = JSON.parse(xmlHttp.responseText).message;
+          msg.setAttribute("class", "show");
+
+        }
+      }
+    }
+
+    function CheckPost() {
+      //这里写一些基本的验证代码
+      return false;
+    }
+
+    function checkuser() {
+      var url = "http://www.1ke.co/backend/teach/js/checkuser.php";
+      url += "?username=" + myform.username.value;
+      doGet(url);
+    }
+
+  </script>
+</head>
+
+<body>
+  <div id="msg">
+  </div>
+  <form name="myform" onsubmit="return CheckPost()">
+    <fieldset>
+      <legend>登录</legend>
+      <p>
+        <label for="txt_username">用户名:</label>
+        <input type="text" name="username" onBlur="checkuser()" />
+      </p>
+      <p>
+        <label for="txt_pwd">密码:</label>
+        <input type="password" name="pwd" />
+      </p>
+      <p>
+        <input type="submit" value="登录" />
+      </p>
+    </fieldset>
+  </form>
+</body>
+
+</html>

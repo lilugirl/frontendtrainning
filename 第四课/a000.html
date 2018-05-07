@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8" />
+            <style>
+               .yellow{
+                  background:yellow;
+               }
+
+               .pink{
+                   background:pink;
+               }
+               .message{
+                   border:1px solid #000;
+                   background:pink;
+
+               }
+            </style>
+            <script>  	
+            function clickme(){
+             // alert("我被点击了一下");   
+               document.getElementById('detail').innerHTML="<a href='#'>详情</a>";
+
+               document.getElementById('detail').setAttribute("class", "yellow");
+               document.getElementById('img').setAttribute('src','bg.jpg');
+
+
+            }
+
+            function changebg(tag){
+              tag.setAttribute('class','pink');
+              tag.setAttribute('placeholder','');
+
+            }
+
+            function resetbg(tag){
+               tag.setAttribute('class','');
+               tag.setAttribute('placeholder','请输入用户名');
+
+                var message=document.getElementById('message');
+                message.innerHTML='';
+                message.setAttribute('class','');
+            }
+
+            function checkpost(tag){
+               if(tag.username.value==''){
+                   var message=document.getElementById('message');
+                   message.innerHTML='请输入用户名';
+                   message.setAttribute('class','message');
+                   return false;
+
+
+               }else{
+                  return true;
+               }
+            }
+          
+
+            
+
+           
+            </script>
+      </head>
+      <body>
+          <div id="login">
+          <button  onClick="clickme()" id="clickbtn" >这是一个按钮</button>
+          </div>  
+          <img src="3.jpg" id="img" />
+          <div id="detail">详情</div>
+
+          <form action="post.php"  method="post" onSubmit="return checkpost(this)">
+            <input type="text" name="username"   onFocus="changebg(this)" onBlur="resetbg(this)" placeholder="请输入用户名"  />
+            <input type="submit"  />
+         
+          </form>
+          <div id="message"></div>
+      </body>
+
+
+      <script>
+     
+      </script>
+</html>

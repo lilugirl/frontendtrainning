@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8" />
+            <style>
+             #login{
+             	width:500px;
+             	height:400px;
+             	position:absolute;
+             	top:50%;
+             	left:50%;
+             	margin-left:-250px;
+             	margin-top:-200px;
+             	background:#eee;
+             }
+             .focus{
+             	background:pink;
+             }
+             .unfocus{
+             	background:white;
+             }
+           
+             .hiddan{
+             	display:hidden;
+             }
+             #msg.show{
+             	border:1px solid #000;
+             	background:yellow;
+             	
+             }
+
+            </style>
+            <script>
+
+            function setStyle(x){
+
+             // alert("onblur事件被调用");
+
+            	var xx=document.getElementById(x);
+            	if(xx.value==""){
+            		xx.setAttribute("class","focus");
+            	}else{
+            		xx.setAttribute("class","unfocus");
+            	}
+            	
+            	
+            }
+            
+
+            function validate_form(thisform){   
+            	 var msg= document.getElementById("msg");
+            	 var txt_username=document.getElementById("txt_username");
+            	 var txt_pwd=document.getElementById("txt_pwd");
+                
+                
+
+            	if(thisform.username.value==""){
+            		thisform.username.focus();
+            		msg.setAttribute("class", "show"); 
+                msg.innerHTML="请输入用户名";
+                txt_username.setAttribute("class","focus");  		
+            		return false;
+            	}
+            	if(thisform.pwd.value==""){
+            		thisform.pwd.focus();
+            		msg.setAttribute("class", "show"); 
+                    msg.innerHTML="请输入密码";
+                    txt_pwd.setAttribute("class","focus");  	
+
+            		
+            		return false;
+            	}
+            	
+            }
+            </script>
+      </head>
+      <body>
+          <div id="login">
+          	<form action="http://1ke.co/backend/teach/js/post.php"  onsubmit="return validate_form(this)" method="post">
+          		<fieldset>
+          			<legend>登录</legend>
+          			<p>
+          				<label for="txt_username">用户名:</label>
+          				<input type="text" name="username"  onBlur="setStyle(this.id)"  id="txt_username" />
+          			</p>
+          			<p>
+          				<label for="txt_pwd">密码:</label>
+          				<input type="password" name="pwd"  onBlur="setStyle(this.id)" id="txt_pwd" />
+          			</p>
+          			<p>
+          				<input type="submit" value="登录" name="submit" id="submit"/> 
+          			
+          			</p>
+          			<p>
+          				<div id="msg">
+                        </div>  
+                   </p>
+          		</fieldset>
+          	</form>
+          </div>
+          
+      </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8" /> 
+            <script> 
+            function checkPost(){
+               if(myform.username.value==""){
+                   alert("请输入姓名");
+                   myform.username.focus();
+                   return false;
+                }
+
+                if(myform.pwd.value.length<5){
+                   alert("标题不能小于5个字符");
+                   myform.pwd.focus();
+                   return false;
+                }
+
+                return true;
+           
+            }
+            </script>
+      </head>
+      <body>
+          	<form action="http://1ke.co/backend/teach/js/post.php" method="post" onsubmit="return checkPost();" name="myform">
+          		<fieldset>
+          			<legend>登录</legend>
+          			<p>
+          				用户名:
+          				<input type="text" name="username" />
+          			</p>
+          			<p>
+          				密码:
+          				<input type="password" name="pwd"/>
+          			</p>
+          			<p>
+          				<input type="submit" value="登录" name="submit" id="submit"/> 
+          				
+          			</p>
+          		</fieldset>
+          	</form>
+          </div>  
+      </body>
+</html>
