@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8" />  
+            <style>
+            .select{
+              background:pink;
+            }
+            </style>
+           
+      </head>
+      <body>
+         <p>这是一段话</p>
+         <p>这是另一段话</p>
+         <div id="test">这是id 标签</div>
+         <div class="box">这是一个盒子</div>
+         <div class="box">这是另一个盒子</div>
+         <button type="button">点我</button>
+      </body>
+      <script language="javascript">
+            
+              function $(tag){
+                var string=tag.substr(0,1);
+                switch(string){
+                  case "#":
+                  return document.getElementById(tag.substring(1));
+                  break;
+                  case ".":
+                  return document.getElementsByClassName(tag.substring(1));
+                  break;
+                  default:
+                  return document.getElementsByTagName(tag);
+                }        
+
+              }
+
+               $('button')[0].onclick=function(){
+                  $("#test").innerHTML="<b>文字已经被改变</b>";              
+                  $('#test').setAttribute("class","select");
+               }
+
+              alert($("#test").innerHTML);
+              var tags=$(".box");
+              for(var i=0;i<tags.length;i++){
+                alert(tags[i].innerHTML);
+              }
+              var tags=$("p");
+               for(var i=0;i<tags.length;i++){
+                alert(tags[i].innerHTML);
+              }
+           </script>   
+</html>

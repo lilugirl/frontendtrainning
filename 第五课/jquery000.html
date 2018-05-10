@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+<script>
+function $(tag){
+    var string=tag.substr(0,1);
+     switch(string){
+        case "#":
+        return document.getElementById(tag.substring(1));
+        break;
+        case ".":
+        return document.getElementsByClassName(tag.substring(1));
+        break;
+        default:
+        return document.getElementsByTagName(tag);
+   }
+}
+
+window.onload=function(){
+
+  alert($('.item')[0].innerHTML);
+  alert($('#box').innerHTML);
+  alert($('p')[1].innerHTML);
+
+  $('button')[0].onclick=function(){
+      alert("哎呦，我被点了一下");
+  }
+}
+
+</script>
+
+<body>
+
+<button>我是按钮</button>
+<div class='box item' >
+第一个 class=box的 元素内容
+</div>
+<div class='box' >
+第二个 class=box的 元素内容
+</div>
+<div id='box' >
+id=box的 元素内容
+</div>
+<p>第一个P标签</p>
+<p>第二个P标签</p>
+</body>

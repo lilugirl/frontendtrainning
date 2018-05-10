@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模块化编程3</title>
+</head>
+
+<body>
+  <script>
+
+    //使用"立即执行函数" 可以达到不暴露私有成员的目的
+    var module1 = (function () {
+      var _count = 0;
+      var m1 = function () {
+        //...
+        console.log('m1');
+      };
+      var m2 = function () {
+        //...
+        console.log('m2');
+      };
+      return {
+        m1: m1,
+        m2: m2,
+        m: m1
+      };
+    })();
+
+    //外部代码无法读取内部的_count变量。
+    console.info(module1._count); //undefined
+
+    module1.m1();
+    module1.m2();
+    module1.m();
+
+  </script>
+</body>
+
+</html>

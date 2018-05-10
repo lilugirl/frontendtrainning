@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    	<script src="jquery-2.1.4.js"></script>
+      <script type="text/javascript">
+      $(document).ready(function(){
+          $('#button').click(function(){
+            $('#cover').show();
+            $('#rightNav').show();
+            $('#rightNav').animate({"right":"0","top":"0"},"fast");
+            $('#main').animate({"left":"-100px"},"fast");
+          });
+
+          $('#close').click(function(){
+             $('#cover').hide();
+             $('#rightNav').animate({"right":"-100px"},"fast");
+             $('#main').animate({"left":"0"},"fast");
+          });
+
+          $('#cover').click(function(){
+              $('#cover').hide();
+              $('#rightNav').animate({"right":"-100px"},"fast");
+              $('#main').animate({"left":"0"},"fast");
+          });
+
+         
+
+          $('#searchinput').focus(function(){
+             $('#searchinput').animate({"width":"400px","background":"yellow"},"fast");
+          });
+
+          $('#searchinput').blur(function(){
+              $('#searchinput').animate({"width":"100px"},"fast");
+          });
+      });
+      </script>
+
+      <style>
+      html,body{
+        width:100%;
+        height:100%;
+        overflow:hidden;
+      }
+      #button{
+        width:50px;
+        height:50px;
+        background:blue;
+        position:absolute;
+        bottom:100px;
+        right:0;
+        z-index:2;
+      }
+      #rightNav{
+        display:none;
+        float:left;
+        z-index:3;
+        position:absolute;
+        right:-100px;
+        background:#fff;
+
+      }
+      #cover{
+         width:100%;
+         height:100%;
+         position:absolute;
+         left:0;
+         top:0;
+         background:rgba(0,0,0,0.6);
+         z-index:2;
+         display:none;
+      }
+      #main{
+        background:yellow;
+        min-height:500px;
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+
+      }
+      </style>
+</head>
+<body>
+<div id="button"></div>
+<div id="main">
+  <p>This is a paragraph with little content.</p>
+  <ul id="header">
+   <li><input id="searchinput" type="text" value="" /></li>
+  <li><a href="#" >首页</a></li>
+  <li><a href="#" >课程</a></li>
+  <li><a href="#" >联系</a></li>
+</ul>
+</div>
+<div id="cover">
+  </div>
+<ul id="rightNav">
+  <li><a href="#" id="close" >close</a></li>
+  <li><a href="#" >菜单1</a></li>
+  <li><a href="#" >菜单2</a></li>
+  <li><a href="#" >菜单3</a></li>
+</ul>
+</body>
+</html>
+

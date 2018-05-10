@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+    	<script src="jquery-2.1.4.js"></script>
+    	 <style>
+            .select{
+              background:pink;
+            }
+      </style>
+       <script>
+       $(document).ready(function(){    //等待DOM元素加载完毕
+          $('button').eq(0).click(function(){
+              //alert('我被点了一下');
+            //  $('p').hide();
+
+              $('p').addClass('select');
+              $(".box").css("background-color","red");
+              $("#test").addClass("select");
+             // $("#test").fadeOut(3000);
+          });
+       });
+      </script>
+	</head>
+	<body>
+		     <p>这是一段话</p>
+         <p>这是另一段话</p>
+         <div id="test">这是id 标签</div>
+         <div class="box">这是一个盒子</div>
+         <div class="box">这是另一个盒子</div>
+         <button type="button">点我</button><button type="button">点我</button>
+	
+	</body>
+
+ 
+</html>

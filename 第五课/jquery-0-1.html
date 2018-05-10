@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+      <head>
+        <meta charset="utf-8" />  
+           <style>
+            .select{
+              background:pink;
+            }
+            </style>
+          <script src="lilu.js"></script>
+          <script>
+             window.onload=function(){
+               $('button')[0].onclick=function(){
+                   $('#container').innerHTML="<b>哈哈，你已经被我修改了</b>";
+                   $('#container').setAttribute('class','select');
+                   $('.box')[0].innerHTML="第一个盒子也被改变了";
+               }            
+             }          
+          </script>  
+           
+      </head>
+      <body>
+        <button>点击改变</button>
+        <div id="container">
+          这是个容器
+        </div>
+
+        <div class="box">
+          这是个盒子
+        </div>
+        <div class="box">
+          这是个盒子
+        </div>
+        <p>这是一个段落</p>
+          <p>这是一个段落</p>
+        <p>这是一个段落</p>
+      </body>
+
+
+       
+     
+</html>

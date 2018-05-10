@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+    <style>
+    .select{
+      background:pink;
+    }
+    .b{
+      font-weight:bold;
+      color:yellow;
+    }
+    </style>
+           
+    <script src="jquery-2.1.4.js"></script>
+     <script>
+        $(document).ready(function(){
+          $("#btn1").click(function(){
+            $("#test1").text("<a href=\"#\">Hello world!</a>");
+            $("#test1").addClass('select');
+           // $("#test1").addClass('b');
+            alert($("#test1").text());
+           // alert($("#test1").attr('class'));
+           
+
+          });
+          $("#btn2").click(function(){
+            $("#test2").html("<b>Hello world!</b>");
+            $("#test2").css("background-color","red");
+
+            alert($("#test2").html());
+            alert($("#test2").attr('style'));
+          });
+          $("#btn3").click(function(){
+            $("#test3").val("文本框里的值");
+            alert( $("#test3").val());
+          });
+        });
+        </script>
+</head>
+
+<body>
+<p id="test1"><a href="#">这是段落。</a></p>
+<p id="test2">这是另一个段落。</p>
+<p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+<button id="btn1">设置文本</button>
+<button id="btn2">设置 HTML</button>
+<button id="btn3">设置值</button>
+</body>
+</html>

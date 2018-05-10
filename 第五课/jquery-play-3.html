@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8" />          
+            <script>
+            function CheckPost(){
+            	
+              if(myform.user.value==""){
+                alert("请输入姓名");
+                myform.user.focus();
+                return false;
+              }
+              if(myform.title.value.length<5){
+                alert("标题不能小于5个字符");
+                myform.title.focus();
+                return false;
+              }
+             
+              if(!myform.read.checked){
+
+              	alert("发布前请阅读制度");
+                myform.read.focus();
+                return false;
+
+              }
+
+              return true;
+            }           
+            </script>
+      </head>
+      <body>       
+        <form action="/test.php" method="post" name="myform" onsubmit="return CheckPost();" >
+        <p>姓名：<input type="text" size=10 name="user" /></p>
+        <p>标题：<input type="text" size=20 name="title" /></p>
+        <p>内容：<textarea name="content"></textarea></p>
+        <p><input type="checkbox" id="read" name="read"/> <label for="cr">我已经阅读了上面制度.</label></p>
+
+        <input type="submit" value="文章发布" /> 		          		
+        </form> 
+      </body>
+</html>

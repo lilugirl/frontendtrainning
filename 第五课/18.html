@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包</title>
+</head>
+
+<body>
+  <ul>
+    <li>一</li>
+    <li>二</li>
+    <li>三</li>
+    <li>四</li>
+    <li>五</li>
+  </ul>
+
+  <script>
+    //运用闭包
+    //这里for循环执行时，给点击事件绑定的匿名函数传递i后立即执行返回一个内部的匿名函数，因为参数是按值传递的，所以此时形参num保存的就是当前i的值,然后赋值给局部变量 a，然后这个内部的匿名函数一直保存着a的引用，也就是一直保存着当前i的值。
+    var oli = document.getElementsByTagName('li');
+    var i;
+    for (i = 0; i < 5; i++) {
+      oli[i].onclick = (function (num, that) {
+        var a = num; // 为了说明问题
+        return function () {
+          alert(a);
+          alert(that.innerHTML);
+
+        }
+      })(i, oli[i])
+    }
+    console.log(i); // 
+  </script>
+</body>
+
+</html>

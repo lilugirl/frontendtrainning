@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>构造函数、原型与实例之间的关系</title>
+</head>
+
+<body>
+
+  <script>
+
+    //定义一个Animal 构造函数 作为 Dog的父类
+    function Animal() {
+      this.superType = 'Animal';
+    }
+
+    Animal.prototype.superSpeak = function () {
+      alert(this.superType);
+    }
+
+
+    function Dog(name) {
+      this.name = name;
+      this.type = 'Dog';
+    }
+
+    //改变Dog的prototype指针，指向一个Animal实例
+    Dog.prototype = new Animal();
+
+    Dog.prototype.speak = function () {
+      alert(this.type);
+    }
+
+    var doggie = new Dog('xiao hei');
+    doggie.superSpeak();
+    console.log(doggie.superType);
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8" />  
+            <style>
+
+
+            .select{
+               background:pink;
+               border:1px solid #000;
+            }
+            </style>
+
+
+              <script src="jquery-2.1.4.js"></script>
+
+              <script>
+            
+
+
+               $(document).ready(function(){
+                   
+                 $('p')[0].innerHTML="这里被我改变";
+                 $('#test').html("这里被我改变");
+
+                 $('#btn1').click(function(){
+                      $('p').hide();
+                      $('#test').css('background','red');
+                      $('.box').css('background','red');
+                       $('#test').animate({height:'20px',opacity:'1'},"slow");
+
+
+
+
+                 });
+
+                 $('#btn2').click(function(){
+                      $('p').show();
+
+                      $('#test').addClass('select');
+                     // $('#test').animate({height:'300px',opacity:'0.4','background-color':'yellow'},"slow");
+
+                     $("#test").hide(1000,function(){
+                         alert("全部隐藏");
+
+                     });
+
+                     alert('看看啥时候执行');
+
+
+
+                 });
+
+
+               });
+
+              </script>
+           
+      </head>
+      <body>
+         <p style="display:block">这是一段话</p>
+         <p>这是另一段话</p>
+         <div id="test">这是id 标签</div>
+         <div class="box">这是一个盒子</div>
+         <div class="box">这是另一个盒子</div>
+         <button type="button" id="btn1">隐藏</button>
+
+          <button type="button" id="btn2">显示</button>
+      </body>
+     
+</html>

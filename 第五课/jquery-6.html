@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8" />
+            <style>    
+             #msg.show{
+             	border:1px solid #000;
+             	background:yellow;           	
+             }
+            </style>
+            <script src="jquery-2.1.4.js"></script>
+            <script>  
+
+           
+
+
+
+
+
+            function CheckPost(){ 
+             //这里写一些基本的验证代码
+              return false;  
+            }
+
+            function checkuser(){
+
+              $.post("http://www.1ke.co/backend/teach/js/json.php",
+              {
+                username:myform.username.value,
+                pwd:"test"
+              },
+              function(d,status){
+               
+                var str="";
+                str=b.message;
+                str+="<br/>";
+                str+="我喜欢的车的品牌有"+a.cars[0]+","+data.cars[1]+","+data.cars[2];
+                $('#msg').html(str);
+              });
+              
+            } 
+            </script>
+      </head>
+      <body>
+        <div id="msg">
+         </div>  
+        	<form name="myform"  onsubmit="return CheckPost()">
+          		<fieldset>
+          			<legend>登录</legend>
+          			<p>
+          				<label for="txt_username">用户名:</label>
+          				<input type="text" name="username"  onBlur="checkuser()" />
+          			</p>
+          			<p>
+          				<label for="txt_pwd">密码:</label>
+          				<input type="password" name="pwd"  />
+          			</p>
+          			<p>
+          				<input type="submit" value="登录" />          			
+          			</p>
+          			
+          		</fieldset>
+          	</form> 
+      </body>
+</html>

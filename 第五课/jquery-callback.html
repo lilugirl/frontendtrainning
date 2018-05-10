@@ -1,0 +1,19 @@
+<script>
+  function A(C,B){
+		 alert("A start");
+		 alert("do "+C);
+
+		 //callback begin
+		 B();
+	}
+
+
+	A("something", function(){
+		alert("i am a call back");
+  });
+
+	A("another something", function(){
+		alert("i am another  call back");
+	});
+
+</script>

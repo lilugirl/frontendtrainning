@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模块化编程2</title>
+</head>
+
+<body>
+  <script>
+    //对象写法
+    //可以把模块写成一个对象，所有的模块成员都放到这个对象里面。
+    var module1 = new Object({
+      _count: 0,
+      m1: function () {
+        //...
+        console.log('m1');
+      },
+      m2: function () {
+        //...
+        console.log('m2');
+      }
+    });
+
+    //函数m1()和m2(），都封装在module1对象里。使用的时候，就是调用这个对象的属性
+    module1.m1();
+
+    //但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。
+    module1._count = 5;
+    console.log(module1);
+
+  </script>
+</body>
+
+</html>

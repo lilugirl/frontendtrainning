@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模块化编程6</title>
+</head>
+
+<body>
+  <script>
+
+    //输入全局变量
+    //module1模块需要使用jQuery库和YUI库，就把这两个库（其实是两个模块）当作参数输入module1
+    var jQuery = {
+      origin: function () {
+        console.log('jquery origin function');
+      }
+    };
+    var YAHOO = {
+      origin: function () {
+        console.log('YAHOO origin function');
+      }
+    };
+
+    var module1 = (function ($, YAHOO) {
+      //...
+      $.add = function () {
+        this.origin();
+        console.log('jquery add');
+      };
+      YAHOO.add = function () {
+        this.origin();
+        console.log('YAHOO add');
+      }
+
+    })(jQuery, YAHOO);
+
+    jQuery.add();
+
+    YAHOO.add();
+
+
+
+  </script>
+</body>
+
+</html>

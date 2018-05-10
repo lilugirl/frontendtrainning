@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>即时函数</title>
+</head>
+
+<body>
+  <script>
+    //写法1
+    (function () {
+      alert('watch out!');
+      alert(this);  //这里的this是window对象
+    }());
+
+
+    //写法2
+    (function () {
+      alert('watch out2!');
+    })();
+
+    //带参数的即时函数
+    (function (who, when) {
+      alert("I met " + who + " on " + when);
+    }("Lilu", new Date()));
+
+
+    //全局对象以参数方式传递给即时函数，使代码在浏览器环境之外具有更好的操作性
+    (function (global) {
+      alert(global);
+    }(this));
+  </script>
+</body>
+
+</html>

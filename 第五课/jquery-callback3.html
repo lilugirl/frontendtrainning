@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<script>
+
+function synchronous_callback(s,callback){
+	 alert("我将执行"+s);
+	 callback();
+}
+
+function asynchronous_callback(s,callback){
+
+	 setTimeout(function(){
+		 alert("我将在"+s+"毫秒后执行,执行完之后我后稍带上callback");
+		 callback();
+
+	 },s);
+
+
+}
+
+asynchronous_callback(1000,function(){
+	alert("执行完了捎带着我奥，我在异步callback函数里");
+});
+
+synchronous_callback("同步callback",function(){
+	alert("执行完了捎带着我奥，我在同步callback函数里");
+})
+
+
+</script>

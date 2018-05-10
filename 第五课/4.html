@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>应用函数</title>
+</head>
+
+<body>
+  <script>
+    function add(x, y, z) {
+      console.log(this);
+      console.log(x + y + z);
+    }
+
+
+    //调用函数
+    add(5, 4, 3);
+
+
+    //应用函数
+    //apply有两个参数，第一个参数为将要绑定到该函数内部this的一个对象，第二个参数是一个数组
+    //如果第一个参数为null ，那么this将指向全局对象
+    add.apply(null, [1, 2, 3]);
+
+    //call()方法是apply()的语法糖
+    add.call(null, 1, 2, 3);
+
+
+    var math = {};
+    add.apply(math, [3, 2, 3]);
+
+
+  </script>
+</body>
+
+</html>

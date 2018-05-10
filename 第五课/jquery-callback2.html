@@ -1,0 +1,21 @@
+<script>
+function A(){
+	alert("alert from A");
+	setTimeout("alert('alert 6 seconds!')",6000);
+}
+
+
+function B(A){
+	 alert("alert at once");
+	 A();
+}
+B(A);
+setTimeout("alert('alert 5 seconds! solo')",5000);
+function f1(callback){
+	alert("f1");
+	setTimeout(callback(),7000);
+}
+
+f1(function(){ alert("i am a callback")});
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包的运用 匿名自执行函数</title>
+</head>
+
+<body>
+  <ul>
+    <li>一</li>
+    <li>二</li>
+    <li>三</li>
+    <li>四</li>
+    <li>五</li>
+  </ul>
+
+  <script>
+    //将全部li字体变为红色
+    //创建了一个匿名的函数，并立即执行它，由于外部无法引用它内部的变量，
+    //因此els, i, lng这些局部变量在执行完后很快就会被释放，节省内存！
+    // 关键是这种机制不会污染全局对象
+    (function () {
+      var els = document.getElementsByTagName('li');
+      for (var i = 0, lng = els.length; i < lng; i++) {
+        els[i].style.color = 'red';
+        console.log(i);
+      }
+    })();
+   // console.log(i);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模块化编程5</title>
+</head>
+
+<body>
+  <script>
+
+    //宽放大模式
+    //第一个执行的部分有可能加载一个不存在空对象，这时就要采用"宽放大模式
+
+
+    var module1 = (function (mod) {
+      //...
+      mod.m3 = function () {
+        console.log('m3');
+      }
+      return mod;
+    })(window.module1 || {});
+
+
+
+
+    console.log(module1);
+
+
+
+    module1.m3();
+
+
+  </script>
+</body>
+
+</html>
